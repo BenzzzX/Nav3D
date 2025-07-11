@@ -18,14 +18,12 @@
 		{
 			"Name": "Nav3D",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"WhitelistPlatforms": [ "Win64", "Win32" ]
+			"LoadingPhase": "Default"
 		},
 		{
 			"Name": "Nav3DEditor",
 			"Type": "Editor",
-			"LoadingPhase":  "PostEngineInit",
-			"WhitelistPlatforms": [ "Win64", "Win32" ]
+			"LoadingPhase":  "PostEngineInit"
 		}
 	]
 }
