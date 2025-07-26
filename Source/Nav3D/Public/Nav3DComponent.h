@@ -4,9 +4,9 @@
 #include "Components/ActorComponent.h"
 #include "Nav3DComponent.generated.h"
 
-DECLARE_DYNAMIC_DELEGATE_OneParam(FFindPathTaskCompleteDynamicDelegate, bool, bPathFound);
-DECLARE_DYNAMIC_DELEGATE_OneParam(FFindLineOfSightTaskCompleteDynamicDelegate, bool, bLineOfSightFound);
-DECLARE_DYNAMIC_DELEGATE_OneParam(FFindCoverTaskCompleteDynamicDelegate, bool, bLocationFound);
+DECLARE_DELEGATE_OneParam(FFindPathTaskCompleteDynamicDelegate, bool);
+DECLARE_DELEGATE_OneParam(FFindLineOfSightTaskCompleteDynamicDelegate, bool);
+DECLARE_DELEGATE_OneParam(FFindCoverTaskCompleteDynamicDelegate, bool);
 
 UCLASS(BlueprintType, Blueprintable, meta=(BlueprintSpawnableComponent, DisplayName="Nav3D Component"))
 class NAV3D_API UNav3DComponent final : public UActorComponent
@@ -85,7 +85,6 @@ public:
 		const bool bPerformLineTraces,
 		FNav3DCoverLocation& CoverLocation) const;
 	
-	UFUNCTION(BlueprintCallable, Category = "Nav3D")
 	void FindPath(
 		const FVector& StartLocation,
 		const FVector& TargetLocation,
@@ -93,7 +92,6 @@ public:
 		FFindPathTaskCompleteDynamicDelegate OnComplete,
 		ENav3DPathFindingCallResult& Result);
 
-	UFUNCTION(BlueprintCallable, Category = "Nav3D")
 	void FindCover(
 		FVector SearchOrigin,
 		float MaxRadius,
@@ -104,7 +102,6 @@ public:
 		ENav3DFindCoverCallResult& Result
 	);
 
-	UFUNCTION(BlueprintCallable, Category = "Nav3D")
     void FindCoverMultipleOpponents(
         FVector SearchOrigin,
         float MaxRadius,
@@ -115,7 +112,6 @@ public:
         ENav3DFindCoverCallResult& Result
     );
 
-	UFUNCTION(BlueprintCallable, Category = "Nav3D")
     void FindLineOfSight(
         const FVector& StartLocation,
         AActor* TargetActor,

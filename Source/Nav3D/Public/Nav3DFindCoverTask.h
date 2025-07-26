@@ -53,9 +53,8 @@ protected:
 			}
 #endif
 
+		    TaskComplete.Execute(CoverLocation.Location != FVector::ZeroVector);
 		});
-
-		TaskComplete.Execute(CoverLocation.Location != FVector::ZeroVector);
 	}
 
 	FORCEINLINE TStatId GetStatId() const

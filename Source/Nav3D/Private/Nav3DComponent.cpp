@@ -1,9 +1,16 @@
 #include "Nav3DComponent.h"
+
+#include "DrawDebugHelpers.h"
 #include "Nav3DFindCoverTask.h"
 #include "Nav3DFindPathTask.h"
 #include "Nav3DFindLineOfSightTask.h"
 #include "Nav3DStructs.h"
 #include "Nav3DVolume.h"
+
+#include "Components/PrimitiveComponent.h"
+
+#include "Engine/World.h"
+
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
